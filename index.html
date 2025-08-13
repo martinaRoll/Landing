@@ -834,31 +834,66 @@
         const heroEmailInput = document.querySelector('.hero-email-input');
         const heroEmailSubmit = document.querySelector('.hero-email-submit');
 
-        heroEmailSubmit.addEventListener('click', function(e) {
+        // heroEmailSubmit.addEventListener('click', function(e) {
          
-            const email = heroEmailInput.value;
+        //     const email = heroEmailInput.value;
             
-            if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                // Simulate successful submission
+        //     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        //         // Simulate successful submission
+        //         heroEmailSubmit.textContent = '¡Listo! 🎉';
+        //         heroEmailSubmit.style.background = '#4ade80';
+        //         heroEmailInput.value = '';
+                
+        //         setTimeout(() => {
+        //             heroEmailSubmit.textContent = 'Quiero ser parte';
+        //             heroEmailSubmit.style.background = 'white';
+        //         }, 3000);
+        //     } else {
+        //         // Show error
+        //         heroEmailInput.style.borderColor = '#f87171';
+        //         heroEmailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
+                
+        //         setTimeout(() => {
+        //             heroEmailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+        //             heroEmailInput.style.boxShadow = 'none';
+        //         }, 2000);
+        //     }
+        // });
+
+        heroEmailSubmit.addEventListener('click', function(e) {
+        e.preventDefault(); // Evitamos que el navegador recargue la página
+        const email = heroEmailInput.value;
+
+        if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            // Enviar datos a Netlify
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({
+                    "form-name": "contact1", // 👈 nombre exacto del form
+                    "email": email
+                }).toString()
+            }).then(() => {
                 heroEmailSubmit.textContent = '¡Listo! 🎉';
                 heroEmailSubmit.style.background = '#4ade80';
                 heroEmailInput.value = '';
-                
+
                 setTimeout(() => {
                     heroEmailSubmit.textContent = 'Quiero ser parte';
                     heroEmailSubmit.style.background = 'white';
                 }, 3000);
-            } else {
-                // Show error
-                heroEmailInput.style.borderColor = '#f87171';
-                heroEmailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
-                
-                setTimeout(() => {
-                    heroEmailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                    heroEmailInput.style.boxShadow = 'none';
-                }, 2000);
-            }
-        });
+            }).catch(error => alert("Error: " + error));
+        } else {
+            heroEmailInput.style.borderColor = '#f87171';
+            heroEmailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
+            
+            setTimeout(() => {
+                heroEmailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                heroEmailInput.style.boxShadow = 'none';
+            }, 2000);
+        }
+    });
+
 
         // Reset hero input styling on focus
         heroEmailInput.addEventListener('focus', function() {
@@ -871,31 +906,63 @@
         const emailInput = document.querySelector('.email-input');
         const emailSubmit = document.querySelector('.email-submit');
 
-        emailSubmit.addEventListener('click', function(e) {
+        // emailSubmit.addEventListener('click', function(e) {
            
-            const email = emailInput.value;
+        //     const email = emailInput.value;
             
-            if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                // Simulate successful submission
+        //     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        //         // Simulate successful submission
+        //         emailSubmit.textContent = '¡Listo! 🎉';
+        //         emailSubmit.style.background = '#4ade80';
+        //         emailInput.value = '';
+                
+        //         setTimeout(() => {
+        //             emailSubmit.textContent = 'Unirme';
+        //             emailSubmit.style.background = 'white';
+        //         }, 3000);
+        //     } else {
+        //         // Show error
+        //         emailInput.style.borderColor = '#f87171';
+        //         emailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
+                
+        //         setTimeout(() => {
+        //             emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+        //             emailInput.style.boxShadow = 'none';
+        //         }, 2000);
+        //     }
+        // });
+
+        emailSubmit.addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = emailInput.value;
+
+        if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({
+                    "form-name": "contact2",
+                    "email": email
+                }).toString()
+            }).then(() => {
                 emailSubmit.textContent = '¡Listo! 🎉';
                 emailSubmit.style.background = '#4ade80';
                 emailInput.value = '';
-                
                 setTimeout(() => {
                     emailSubmit.textContent = 'Unirme';
                     emailSubmit.style.background = 'white';
                 }, 3000);
-            } else {
-                // Show error
-                emailInput.style.borderColor = '#f87171';
-                emailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
-                
-                setTimeout(() => {
-                    emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                    emailInput.style.boxShadow = 'none';
-                }, 2000);
-            }
-        });
+            }).catch(error => alert(error));
+        } else {
+            emailInput.style.borderColor = '#f87171';
+            emailInput.style.boxShadow = '0 0 20px rgba(248, 113, 113, 0.3)';
+            setTimeout(() => {
+                emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                emailInput.style.boxShadow = 'none';
+            }, 2000);
+        }
+    });
+
 
         // Reset input styling on focus
         emailInput.addEventListener('focus', function() {
