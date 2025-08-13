@@ -604,11 +604,14 @@
             <div class="hero-content">
                 <h1>Encuentra tu compañero de piso perfecto</h1>
                 <p>La primera app que conecta personas compatibles para compartir alquiler. Filtra por barrio, personalidad y estilo de vida. ¡Es como Tinder, pero para roommates!</p>
+                <form name="contact1" method="POST" data-netlify="true" onSubmit="submit">
+
                 <div class="hero-form">
-                    <input type="email" class="hero-email-input" placeholder="Tu email" required>
+                    <input type="email" class="hero-email-input" name= "email" placeholder="Tu email" required>
                     <button type="submit" class="hero-email-submit">Quiero ser parte</button>
                 </div>
                 <p class="hero-microcopy">Nos encantaría contarte cuándo esté listo (y quizás probarlo con vos)</p>
+                </form>
             </div>
         </div>
     </section>
@@ -703,14 +706,16 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <div class="cta-content fade-in">
-                <h2>¿Te interesa la propuesta?</h2>
-                <p>Si te entusiasma lo que estamos construyendo y querés ser parte del proceso, dejanos tu mail. Así vas a poder participar de pruebas, enterarte de las novedades antes que nadie y ayudarnos a mejorar con tu feedback. ¡Nos encantaría contar con vos!</p>
-                <div class="email-form">
-                    <input type="email" class="email-input" placeholder="tu-email@ejemplo.com" required>
-                    <button type="submit" class="email-submit">Unirme</button>
+            <form name="contact2" method="POST" data-netlify="true" onSubmit="submit">
+                <div class="cta-content fade-in">
+                    <h2>¿Te interesa la propuesta?</h2>
+                    <p>Si te entusiasma lo que estamos construyendo y querés ser parte del proceso, dejanos tu mail. Así vas a poder participar de pruebas, enterarte de las novedades antes que nadie y ayudarnos a mejorar con tu feedback. ¡Nos encantaría contar con vos!</p>
+                    <div class="email-form">
+                        <input type="email" class="email-input" placeholder="tu-email@ejemplo.com" name= "email" required>
+                        <button type="submit" class="email-submit">Unirme</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
