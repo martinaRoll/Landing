@@ -601,7 +601,14 @@
         <div class="floating-element floating-3">🔑</div>
         
         <div class="container">
-            <form name="contact1" method="POST" data-netlify="true" onSubmit="submit">
+            <form name="contact1" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            
+            <input type="hidden" name="form-name" value="contact1">
+            <p style="display:none">
+                <label>No completar: <input name="bot-field"></label>
+            </p>
+
+
             <div class="hero-content">
                 <h1>Encuentra tu compañero de piso perfecto</h1>
                 <p>La primera app que conecta personas compatibles para compartir alquiler. Filtra por barrio, personalidad y estilo de vida. ¡Es como Tinder, pero para roommates!</p>
